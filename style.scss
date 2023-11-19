@@ -1,0 +1,174 @@
+/*-----VARS-----*/
+
+$lightThemeDisplay: #fff;
+$lightThemeButtons: #F5F5F5;
+$lightColorText: #1E1E1E;
+
+$darkThemeDisplay: #212327;
+$darkThemeButtons: #27292E;
+$darkColorText: #fff;
+
+$BackgroundButtons: #d6d6d677;
+
+
+/*-----/VARS-----*/
+
+/*-----BASE-----*/
+
+body {
+    font-family: 'Arimo', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+
+    color: $lightColorText;
+
+    
+}
+
+.calculator {
+    
+}
+
+
+.container {
+    width: 390px;
+    margin: 0 auto;
+
+    border: 1px solid black;
+
+    background-color: $lightThemeDisplay;
+}
+
+.none {
+    display: none;
+}
+
+/*-----/BASE-----*/
+
+/*-----MAIN BLOCKS-----*/
+
+.block-display {
+
+    padding: 70px 40px 30px;
+    text-align:right;
+    span {
+        
+        font-size: 48px;
+        font-weight: 700;
+    };   
+}
+.block-buttons {
+    display: flex;
+
+    padding: 50px 40px 40px;
+
+    background-color: $lightThemeButtons;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.container--dark {
+    background-color: $darkThemeDisplay;
+}
+
+
+.block-buttons--dark {
+    background-color: $darkThemeButtons;
+}
+
+.block-display--dark {
+    background-color: $darkThemeDisplay;
+    color: #fff;
+}
+
+.body-dark {
+    color: $darkColorText;
+}
+
+
+
+/*-----/MAIN BLOCKS-----*/
+
+/*-----COLUMNS-----*/
+
+.block-buttons_column {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    
+    row-gap: 16px;
+
+}
+
+.block-buttons_column--first {
+    margin-right: 16px;
+};
+
+.block-buttons_column--second {
+    margin-right: 16px;
+};
+
+.block-buttons_column--third {
+    margin-right: 16px;
+};
+
+.block-buttons_column--fourth {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
+};
+
+/*-----/COLUMNS-----*/
+
+/*-----BUTTONS STYLE-----*/
+
+.btn--common {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.btn--theme {
+    border: 2px solid $BackgroundButtons;
+
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.btn--digit {
+}
+
+.btn--clear {
+    color: #ED0E98;
+
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.btn--operation {
+    position: relative;
+
+    background-color: $BackgroundButtons;
+}
+
+.btn--plus {
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 35%;
+        left: 35%;
+    }
+}
+
+.btn--minus {
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+    }
+}
+
+/*-----/BUTTONS STYLE-----*/

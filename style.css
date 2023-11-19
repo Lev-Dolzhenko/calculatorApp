@@ -1,0 +1,134 @@
+/*-----VARS-----*/
+/*-----/VARS-----*/
+/*-----BASE-----*/
+body {
+  font-family: "Arimo", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #1E1E1E;
+}
+
+.container {
+  width: 390px;
+  margin: 0 auto;
+  border: 1px solid black;
+  background-color: #fff;
+}
+
+.none {
+  display: none;
+}
+
+/*-----/BASE-----*/
+/*-----MAIN BLOCKS-----*/
+.block-display {
+  padding: 70px 40px 30px;
+  text-align: right;
+}
+.block-display span {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.block-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 50px 40px 40px;
+  background-color: #F5F5F5;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.container--dark {
+  background-color: #212327;
+}
+
+.block-buttons--dark {
+  background-color: #27292E;
+}
+
+.block-display--dark {
+  background-color: #212327;
+  color: #fff;
+}
+
+.body-dark {
+  color: #fff;
+}
+
+/*-----/MAIN BLOCKS-----*/
+/*-----COLUMNS-----*/
+.block-buttons_column {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  row-gap: 16px;
+}
+
+.block-buttons_column--first {
+  margin-right: 16px;
+}
+
+.block-buttons_column--second {
+  margin-right: 16px;
+}
+
+.block-buttons_column--third {
+  margin-right: 16px;
+}
+
+.block-buttons_column--fourth {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr 2fr;
+}
+
+/*-----/COLUMNS-----*/
+/*-----BUTTONS STYLE-----*/
+.btn--common {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.btn--theme {
+  border: 2px solid rgba(214, 214, 214, 0.4666666667);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.btn--clear {
+  color: #ED0E98;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.btn--operation {
+  position: relative;
+  background-color: rgba(214, 214, 214, 0.4666666667);
+}
+
+.btn--plus {
+  position: relative;
+}
+.btn--plus svg {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+}
+
+.btn--minus {
+  position: relative;
+}
+.btn--minus svg {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+}
+
+/*-----/BUTTONS STYLE-----*/
