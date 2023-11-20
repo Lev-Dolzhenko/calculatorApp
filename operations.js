@@ -14,3 +14,7 @@ function multiply(a, b) {
     return a * b;
 }
 
+function residue(a, b) {
+    return a % b;
+}
+

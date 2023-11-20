@@ -1,6 +1,7 @@
 /*----CHANGE THEME-----*/
 
-const btnTheme = document.querySelector('.btn--theme');
+const btnDark = document.querySelector('.btn--dark');
+const btnLight = document.querySelector('.btn--light')
 
 const body = document.querySelector('body');
 const container = document.querySelector('.container');
@@ -30,45 +31,77 @@ const btnEqually = document.querySelector('.btn--equally');
 
 /*-----FUNCTION TO EQUALLY DISPLAY-----*/
 
+const btnOperations = document.querySelectorAll('.btn--operation')
+
 const operations = {
     sum: '+',
     substract: '-',
     division: '/',
-    multiply: '*'
+    multiply: '*',
+    residue: '%'
 }
 
 function calculate(a, b, operation) {
     switch (operation) {
         case operations.sum:
+            firstNum = result.textContent = sum(a, b);
+            secondNum = ''
             return result.textContent = sum(a, b);
         case operations.substract:
+            firstNum = result.textContent = substract(a, b);
+            secondNum = ''
             return result.textContent = substract(a, b);
         case operations.division:
-            return result.textContent = division(a, b);
+            if (b === 0) {
+                return result.textContent = 'Error'
+            } else {
+                firstNum = result.textContent = division(a, b);
+                secondNum = ''
+                return result.textContent = division(a, b);
+            }
         case operations.multiply:
+            firstNum = result.textContent = multiply(a, b);
+            secondNum = ''
             return result.textContent = multiply(a, b);
+        case operations.residue:
+            firstNum = result.textContent = residue(a, b);
+            secondNum = ''
+            return result.textContent = residue(a, b);
         default:
             break;
     }
 }
 
-btnEqually.addEventListener('click', function() {
-    let temp;
-    oper = result.textContent.split('').find(elem => /[+\-x\/]/.test(elem));
-    console.log(oper);
+btnEqually.addEventListener('click', function () {
+    btnEqually.classList.remove('animateBtnEqually');
+    btnEqually.classList.add('animateNotBtnEqually');
+    oper = result.textContent.split('').find(elem => /[+%\-x\/]/.test(elem));
+    // console.log(oper);
     if (oper == 'x') oper = '*';
-    console.log(calculate(parseInt(firstNum), parseInt(secondNum), oper));
+    btnOperations.forEach(btn => btn.removeAttribute('disabled'))
+    console.log(calculate(parseFloat(firstNum), parseFloat(secondNum), oper));
 })
 
 /*-----/FUNCTION TO EQUALLY DISPLAY-----*/
 
 /*-----FUNCTION TO CHANGE THEME-----*/
 
-btnTheme.addEventListener('click', function () {
+btnDark.addEventListener('click', function () {
     blockButtons.classList.toggle('block-buttons--dark');
     body.classList.toggle('body-dark');
     blockDisplay.classList.toggle('block-display--dark');
-    container.classList.toggle('container--dark')
+    container.classList.toggle('container--dark');
+    btnDark.classList.toggle('none');
+    btnLight.classList.toggle('none');
+})
+
+btnLight.addEventListener('click', function () {
+    btnLight.classList.toggle('none');
+    btnDark.classList.toggle('none')
+    blockButtons.classList.toggle('block-buttons--dark');
+    body.classList.toggle('body-dark');
+    blockDisplay.classList.toggle('block-display--dark');
+    container.classList.toggle('container--dark');
 })
 
 /*-----/FUNCTION TO CHANGE THEME-----*/
@@ -84,7 +117,15 @@ function addButtonValue(btnValue) {
     if (result.textContent === '0') {
         result.textContent = ' ';
     };
-    if (result.textContent.includes("+") || result.textContent.includes("-") || result.textContent.includes("x") || result.textContent.includes("/")) {
+    if (result.textContent.includes("+") || result.textContent.includes("-") || result.textContent.includes("x") || result.textContent.includes("/") || result.textContent.includes("%")) {
+        btnOperations.forEach(btn => btn.setAttribute('disabled', 'disabled'));
+        for (let i = 0; i < btnOperations.length; i++) {
+            let btnOperation = btnOperations[i];
+            if (btnOperation.disabled) {
+                btnEqually.classList.remove('animateNotBtnEqually')
+                btnEqually.classList.add('animateBtnEqually')
+            }
+        }
         secondNum += btnValue;
         console.log(secondNum);
     } else {
@@ -92,7 +133,7 @@ function addButtonValue(btnValue) {
         console.log(firstNum);
     }
     result.textContent += btnValue;
-    console.log(typeof result.textContent)
+    console.log(result.textContent)
 }
 
 for (let i = 0; i < allButtons.length; i++) {
@@ -104,10 +145,16 @@ for (let i = 0; i < allButtons.length; i++) {
 
 /*-----/FUNCTION TO CHANGE VALUE OF DISPLAY-----*/
 
+
+
+
 /*-----FUNCTION TO CLEAR DISPLAY-----*/
 
 clearButton.addEventListener('click', function () {
     result.textContent = '0';
+    firstNum = '';
+    secondNum = '';
+    oper = '';
 })
 
 /*-----/FUNCTION TO CLEAR DISPLAY-----*/
